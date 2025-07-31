@@ -7,7 +7,7 @@
 
 body {
   color: #fff;
-  background: #323232;
+  background: #0f0026;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -33,14 +33,22 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 3px solid #b35a1b;
+      border: 3px solid #3a0090;
       border-radius: 10px;
+      transition: all 0.2s ease-out;
+
+      &:hover {
+        transform: scale(1.05);
+        border-color: #6f00ff;
+        // filter: drop-shadow(0 0 10px #a763ff);
+      }
 
       .circle {
         width: 85%;
         height: 85%;
         border: 25px solid #548bbc;
         border-radius: 100%;
+        animation: showIn 0.3s ease-in-out forwards;
       }
 
       .cross {
@@ -50,6 +58,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+        animation: showIn 0.3s ease-in-out forwards;
 
         &::before,
         &::after {
@@ -79,6 +88,7 @@ body {
     position: absolute;
     bottom: -75px;
     font-size: 1.5rem;
+    animation: showIn 0.5s ease-in-out forwards;
 
     h2 {
       font-size: 1.5rem;
@@ -88,7 +98,7 @@ body {
     button {
       padding: 10px 25px;
       background: #f99417;
-      color: #323232;
+      color: #000;
       font-weight: 600;
       border: none;
       border-radius: 10px;
@@ -96,7 +106,67 @@ body {
       cursor: pointer;
 
       &:hover {
-        background: #ffb84d;
+        background: #e48900;
+        // filter: drop-shadow(0 0 5px #d19945);
+      }
+    }
+  }
+}
+
+// animation
+@keyframes showIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// mobile
+@media (max-width: 640px){
+  .app{
+    align-self: center;
+
+    .gameContainer{
+      width: 310px;
+      gap: 5px;
+
+      .gameCell{
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+
+        .circle{
+          width: 80%;
+          height: 80%;
+          border: 12px solid #94dbec
+        }
+
+        .cross{
+          &::before,
+          &::after{
+            height: 12px;
+          }
+        }
+      }
+    }
+    .winningMsg{
+      flex-direction: column;
+      bottom: -100px;
+      gap: 10px;
+
+      h2{
+        font-size: 1.2rem;
+      }
+
+      button{
+        padding: 8px 40px;
       }
     }
   }
