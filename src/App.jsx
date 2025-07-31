@@ -46,15 +46,25 @@ const App = () => {
     }
   }
 
+  const handleResetGame = () => {
+    setCells(Array(9).fill(""));
+    setWhoPlay("cross");
+    setWinner(null);
+  }
+
   return (
     <div className="app">
-      <h1>Tic Tac Toe</h1>
-
       <div className="gameContainer">
         {cells.map((cell, index) => {
           return <CellComponent key={index} cell={cell} id={index} handleClick={handleClick} />
         })}
       </div>
+      {
+        winner && <div className="winningMsg">
+          <h2>{winner === "draw" ? "It's a Draw" : `Winner is ${winner.toUpperCase()}`}</h2>
+          <button onClick={handleResetGame}>Play Again</button>
+        </div>
+      }
     </div>
   )
 }

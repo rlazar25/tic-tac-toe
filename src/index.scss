@@ -1,11 +1,11 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
 }
 
-body{
+body {
   color: #fff;
   background: #323232;
   height: 100vh;
@@ -14,33 +14,36 @@ body{
   align-items: center;
 }
 
-.app{
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  position: relative;
 
-
-  .gameContainer{
+  .gameContainer {
     width: 620px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 
-    .gameCell{
+    .gameCell {
       width: 200px;
       height: 200px;
       padding: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 3px solid #fff;
+      border: 3px solid #b35a1b;
       border-radius: 10px;
 
-      .circle{
+      .circle {
         width: 85%;
         height: 85%;
-        border: 25px solid #3552c7;
+        border: 25px solid #548bbc;
         border-radius: 100%;
       }
 
-      .cross{
+      .cross {
         position: relative;
         width: 100%;
         height: 100%;
@@ -49,24 +52,52 @@ body{
         align-items: center;
 
         &::before,
-        &::after{
+        &::after {
           content: "";
-          background: #c77235;
+          background: #f99417;
           position: absolute;
           width: 100%;
           height: 25px;
           border-radius: 40px;
         }
 
-        &::before{
+        &::before {
           transform: rotate(45deg);
         }
-        &::after{
+        &::after {
           transform: rotate(-45deg);
         }
       }
-
     }
   }
 
+  .winningMsg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    position: absolute;
+    bottom: -75px;
+    font-size: 1.5rem;
+
+    h2 {
+      font-size: 1.5rem;
+      color: #94dbec;
+    }
+
+    button {
+      padding: 10px 25px;
+      background: #f99417;
+      color: #323232;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+
+      &:hover {
+        background: #ffb84d;
+      }
+    }
+  }
 }
