@@ -8,7 +8,7 @@ const App = () => {
   const [winner, setWinner] = useState(null);
 
   return (
-    <div>
+    <div className="app">
       <h1>Tic Tac Toe</h1>
 
       <div className="gameContainer">

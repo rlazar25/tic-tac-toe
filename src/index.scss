@@ -1,0 +1,37 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body{
+  color: #fff;
+  background: #323232;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app{
+
+
+  .gameContainer{
+    width: 620px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .gameCell{
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 3px solid #fff;
+      border-radius: 10px;
+    }
+  }
+
+}
