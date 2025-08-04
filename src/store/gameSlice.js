@@ -30,7 +30,7 @@ const gameSlice = createSlice({
       for (let combo of winningCombos){
         const [a,b,c] = combo;
 
-        // winner
+        // condition for winner
         if(updatedCells[a] && updatedCells[a] === updatedCells[b] && updatedCells[b] === updatedCells[c]){
             state.winner = updatedCells[a]
             return
@@ -41,8 +41,13 @@ const gameSlice = createSlice({
         }
       }
     },
+    restartGameAction: (state) => {
+        state.cells = Array(9).fill("");
+        state.whoPlay = "cross";
+        state.winner = null
+    }
   },
 });
 
-export const { clickCellAction } = gameSlice.actions;
+export const { clickCellAction, restartGameAction} = gameSlice.actions;
 export default gameSlice.reducer;

@@ -2,6 +2,7 @@
 import CellComponent from "./components/CellComponent"
 //redux
 import { useDispatch, useSelector } from "react-redux"
+import { restartGameAction } from "./store/gameSlice"
 
 const App = () => {
 
@@ -18,7 +19,7 @@ const App = () => {
       {
         winner && <div className="winningMsg">
           <h2>{winner === "draw" ? "It's a Draw" : `Winner is ${winner.toUpperCase()}`}</h2>
-          <button>Play Again</button>
+          <button onClick={() => dispatch(restartGameAction())}>Play Again</button>
         </div>
       }
     </div>
