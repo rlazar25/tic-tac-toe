@@ -1,8 +1,9 @@
+import { Link } from "react-router"
 
 const HomePage = () => {
   return (
     <div>
-        Home
+        <Link to={'/gamePage'}>Game</Link>
     </div>
   )
 }
