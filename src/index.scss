@@ -27,9 +27,11 @@ body {
 
 .app {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: end;
+  align-items: center;
   position: relative;
+  gap: 20px;
 
   .gameContainer {
     width: 620px;
@@ -107,19 +109,49 @@ body {
   }
 }
 
+// home page
 .homePage{
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 24px;
-
+  
   & .btn{
     width: 200px;
     font-size: 1.4rem;
-
+    
     &:hover{
       box-shadow: 0 0 10px 3px var(--color-shadow);
+    }
+  }
+}
+
+// edit page
+.editPage{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 1.4rem;
+  
+  .editColor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  input[type="color"]{
+    background: none;
+    outline: none;
+    width: 50px;
+    height: 40px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover{
+      scale: 1.05;
     }
   }
 }
@@ -174,7 +206,7 @@ body {
         .circle{
           width: 80%;
           height: 80%;
-          border: 12px solid #94dbec
+          border-width: 12px;
         }
 
         .cross{
