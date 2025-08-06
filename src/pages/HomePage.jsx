@@ -4,6 +4,7 @@ const HomePage = () => {
   return (
     <div>
         <Link to={'/gamePage'}>Game</Link>
+        <Link to={'/editPage'}>Edit</Link>
     </div>
   )
 }

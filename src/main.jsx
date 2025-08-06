@@ -11,6 +11,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import HomePage from './pages/HomePage.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 import GamePage from './pages/GamePage.jsx'
+import EditPage from './pages/EditPage.jsx'
 
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/gamePage',
         element: <GamePage />
+      },
+      {
+        path: '/editPage',
+        element: <EditPage />
       }
     ]
   }
