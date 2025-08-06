@@ -1,8 +1,8 @@
-
+import BackToHomeBtnComponent from "../components/BackToHomeBtnComponent"
 const EditPage = () => {
   return (
     <div>
-      EditPage
+      <BackToHomeBtnComponent />
     </div>
   )
 }

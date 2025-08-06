@@ -19,7 +19,7 @@ const GamePage = () => {
       {
         winner && <div className="winningMsg">
           <h2>{winner === "draw" ? "It's a Draw" : `Winner is ${winner.toUpperCase()}`}</h2>
-          <button onClick={() => dispatch(restartGameAction())}>Play Again</button>
+          <button className="btn" onClick={() => dispatch(restartGameAction())}>Play Again</button>
         </div>
       }
     </div>
