@@ -13,7 +13,7 @@ const GamePage = () => {
   return (
     <div className="gamePage">
       <div className="gameInfo">
-          <p className="msg"> {winner ? (winner === "draw" ? "It's a Draw" : `Winner is ${winner}`) : `Turn: ${whoPlay}`}</p>
+           {winner ? <p className="msg">{winner === "draw" ? "It's a Draw" : `Winner is ${winner}`}</p> : <p>Turn: {whoPlay}</p>}
           <div className="gameScore">
             <p>Player 1: {crossScore}</p>
             <p>Player 2: {circleScore}</p>

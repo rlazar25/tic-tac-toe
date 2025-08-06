@@ -37,12 +37,14 @@ body {
     font-weight: 600;
     position: absolute;
     top: -50px;
+    font-size: 1.3rem;
 
     .msg {
-      font-size: 1.3rem;
+      animation: winMsg 0.5s ease;
     }
 
     .gameScore {
+      font-size: 1.1rem;
       display: flex;
       justify-content: space-between;
       width: 500px;
@@ -196,12 +198,28 @@ body {
   }
 }
 
+@keyframes winMsg {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 // mobile
 @media (max-width: 640px) {
   .gamePage {
     align-self: center;
+    gap: 30px;
 
     .gameInfo {
+      top: -60px;
       width: 310px;
       .gameScore {
         width: 100%;
@@ -232,9 +250,7 @@ body {
       }
     }
     .gameBtns {
-      flex-direction: column;
-      bottom: -50px;
-      gap: 10px;
+      bottom: -70px;
     }
   }
 }
