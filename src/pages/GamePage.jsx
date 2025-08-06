@@ -8,6 +8,7 @@ import BackToHomeBtnComponent from "../components/BackToHomeBtnComponent"
 const GamePage = () => {
 
   const {cells, winner, whoPlay, crossScore,circleScore} = useSelector(state => state.gameStore)
+  const {crossName, circleName} = useSelector(state => state.editStore)
   const dispatch = useDispatch()
   
   return (
@@ -15,8 +16,8 @@ const GamePage = () => {
       <div className="gameInfo">
            {winner ? <p className="msg">{winner === "draw" ? "It's a Draw" : `Winner is ${winner}`}</p> : <p>Turn: {whoPlay}</p>}
           <div className="gameScore">
-            <p>Player 1: {crossScore}</p>
-            <p>Player 2: {circleScore}</p>
+            <p>{crossName}: {crossScore}</p>
+            <p>{circleName}: {circleScore}</p>
           </div>
       </div>
       <div className="gameContainer">

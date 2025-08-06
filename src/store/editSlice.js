@@ -5,6 +5,8 @@ const editSlice = createSlice({
   initialState: {
     crossColor: "#ff4a3a",
     circleColor: "#3aa6ff",
+    crossName: "Player 1",
+    circleName: "Player 2"
   },
   reducers: {
     setColorCrossAction: (state, action) => {
@@ -13,8 +15,14 @@ const editSlice = createSlice({
     setColorCircleAction: (state, action) => {
       state.circleColor = action.payload;
     },
+    setCrossNameAction: (state, action) =>{
+      state.crossName = action.payload
+    },
+    setCircleNameAction: (state, action) =>{
+      state.circleName = action.payload
+    }
   },
 });
 
-export const { setColorCrossAction, setColorCircleAction } = editSlice.actions;
+export const { setColorCrossAction, setColorCircleAction, setCrossNameAction, setCircleNameAction } = editSlice.actions;
 export default editSlice.reducer;
