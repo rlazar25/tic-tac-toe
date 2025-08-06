@@ -6,6 +6,8 @@ const gameSlice = createSlice({
     cells: Array(9).fill(""),
     whoPlay: "cross",
     winner: null,
+    crossScore: 0,
+    circleScore: 0
   },
   reducers: {
     clickCellAction: (state, action) => {
@@ -33,6 +35,11 @@ const gameSlice = createSlice({
         // condition for winner
         if(updatedCells[a] && updatedCells[a] === updatedCells[b] && updatedCells[b] === updatedCells[c]){
             state.winner = updatedCells[a]
+            if(state.winner === "cross") {
+              state.crossScore += 1
+            } else if(state.winner === "circle") {
+              state.circleScore += 1
+            }
             return
         }
         // if it is a draw

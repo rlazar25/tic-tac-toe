@@ -5,7 +5,7 @@
   font-family: sans-serif;
 }
 
-:root{
+:root {
   --color-bg: #0f0026;
   --color-text: #82e4ff;
   --color-border: #3a0090;
@@ -14,7 +14,6 @@
   --color-cross: #ff4a3a;
   --color-circle: #3aa6ff;
 }
-
 
 body {
   color: var(--color-text);
@@ -25,7 +24,7 @@ body {
   align-items: center;
 }
 
-.app {
+.gamePage {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,15 +32,32 @@ body {
   position: relative;
   gap: 20px;
 
+  .gameInfo {
+    text-align: center;
+    font-weight: 600;
+    position: absolute;
+    top: -50px;
+
+    .msg {
+      font-size: 1.3rem;
+    }
+
+    .gameScore {
+      display: flex;
+      justify-content: space-between;
+      width: 500px;
+    }
+  }
   .gameContainer {
-    width: 620px;
+    width: 500px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
 
     .gameCell {
-      width: 200px;
-      height: 200px;
+      width: 160px;
+      height: 160px;
       padding: 20px;
       display: flex;
       justify-content: center;
@@ -56,9 +72,9 @@ body {
       }
 
       .circle {
-        width: 85%;
-        height: 85%;
-        border: 25px solid var(--color-circle);
+        width: 100%;
+        height: 100%;
+        border: 20px solid var(--color-circle);
         border-radius: 100%;
         animation: showIn 0.3s ease-in-out forwards;
       }
@@ -77,8 +93,8 @@ body {
           content: "";
           background: var(--color-cross);
           position: absolute;
-          width: 100%;
-          height: 25px;
+          width: 110%;
+          height: 20px;
           border-radius: 40px;
         }
 
@@ -92,72 +108,63 @@ body {
     }
   }
 
-  .winningMsg {
+  .gameBtns {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 25px;
     position: absolute;
-    bottom: -75px;
+    bottom: -65px;
     font-size: 1.5rem;
     animation: showIn 0.5s ease-in-out forwards;
-
-    h2 {
-      font-size: 1.5rem;
-      color: var(--color-text);
-    }
   }
 }
 
 // home page
-.homePage{
+.homePage {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 24px;
-  
-  & .btn{
+
+  & .btn {
     width: 200px;
     font-size: 1.4rem;
-    
-    &:hover{
-      box-shadow: 0 0 10px 3px var(--color-shadow);
-    }
   }
 }
 
 // edit page
-.editPage{
+.editPage {
   display: flex;
   flex-direction: column;
   gap: 30px;
   font-size: 1.4rem;
-  
-  .editColor{
+
+  .editColor {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
   }
-  
-  input[type="color"]{
+
+  input[type="color"] {
     background: none;
     outline: none;
     width: 50px;
     height: 40px;
     border-radius: 15px;
     cursor: pointer;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 
-    &:hover{
+    &:hover {
       scale: 1.05;
     }
   }
 }
 
 // button
-.btn{
+.btn {
   border: 2px solid var(--color-border);
   background: transparent;
   color: var(--color-text);
@@ -165,14 +172,14 @@ body {
   text-decoration: none;
   padding: 12px 40px;
   border-radius: 10px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 
-  &:hover{
+  &:hover {
     border-color: var(--color-hover);
+    box-shadow: 0 0 10px 3px var(--color-shadow);
     scale: 1.05;
   }
 }
-
 
 // animation
 @keyframes showIn {
@@ -190,45 +197,44 @@ body {
 }
 
 // mobile
-@media (max-width: 640px){
-  .app{
+@media (max-width: 640px) {
+  .gamePage {
     align-self: center;
 
-    .gameContainer{
+    .gameInfo {
+      width: 310px;
+      .gameScore {
+        width: 100%;
+      }
+    }
+    .gameContainer {
       width: 310px;
       gap: 5px;
 
-      .gameCell{
+      .gameCell {
         width: 100px;
         height: 100px;
         padding: 10px;
 
-        .circle{
+        .circle {
           width: 80%;
           height: 80%;
           border-width: 12px;
         }
 
-        .cross{
+        .cross {
           &::before,
-          &::after{
+          &::after {
             height: 12px;
+            width: 90%;
           }
         }
       }
     }
-    .winningMsg{
+    .gameBtns {
       flex-direction: column;
-      bottom: -100px;
+      bottom: -50px;
       gap: 10px;
-
-      h2{
-        font-size: 1.2rem;
-      }
-
-      button{
-        padding: 8px 40px;
-      }
     }
   }
 }
