@@ -7,23 +7,39 @@ const gameSlice = createSlice({
     whoPlay: "cross",
     winner: null,
     crossScore: 0,
-    circleScore: 0
+    circleScore: 0,
+    moves: {
+      cross: [],
+      circle: [],
+    },
+    mode: "classic",
   },
   reducers: {
     clickCellAction: (state, action) => {
-      // disable click
       if (state.cells[action.payload] !== "" || state.winner) return;
 
-      // copy and give player class
-      const updatedCells = [...state.cells];
-      updatedCells[action.payload] = state.whoPlay;
+      const currentPlayer = state.whoPlay;
 
-      // update who play next
-      state.cells = updatedCells;
-      state.whoPlay = state.whoPlay === "cross" ? "circle" : "cross";
+      if (state.mode === "dynamic") { // dynamic mode
+        // handle only 3 symbols
+        if (state.moves[currentPlayer].length === 3) {
+          const oldestMove = state.moves[currentPlayer].shift();
+          state.cells[oldestMove] = "";
+        }
+        state.cells[action.payload] = currentPlayer;
+        state.moves[currentPlayer].push(action.payload);
+      } else { // classic
+        state.cells[action.payload] = currentPlayer;
+      }
+
+      // change player
+      state.whoPlay = currentPlayer === "cross" ? "circle" : "cross";
+      
+      // copy state for winner check
+      const updatedCells = [...state.cells];
 
       // check winner
-      const winningCombos = [
+     const winningCombos = [
         [0, 1, 2],[3, 4, 5],[6, 7, 8], //horizontal
         [0, 3, 6],[1, 4, 7],[2, 5, 8], //vertical
         [0, 4, 8],[2, 4, 6], //diagonal
@@ -48,13 +64,18 @@ const gameSlice = createSlice({
         }
       }
     },
+    setModeAction: (state, action) => {
+      state.mode = action.payload;
+    },
     restartGameAction: (state) => {
-        state.cells = Array(9).fill("");
-        state.whoPlay = "cross";
-        state.winner = null
-    }
+      state.cells = Array(9).fill("");
+      state.whoPlay = "cross";
+      state.winner = null;
+      state.moves = { cross: [], circle: [] };
+    },
   },
 });
 
-export const { clickCellAction, restartGameAction} = gameSlice.actions;
+export const { clickCellAction, restartGameAction, setModeAction } =
+  gameSlice.actions;
 export default gameSlice.reducer;
